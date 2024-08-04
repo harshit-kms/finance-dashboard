@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, {useState} from 'react'
+import styled from "styled-components";
+import Navigation from "../src/components/navigation.js";
+import Income from "../src/components/income.js";
+import Expense from "../src/components/expense.js";
+import Dashboard from "../src/components/dashboard.js";
 function App() {
+  const [active, setActive] = useState(1)
+
+  const displayData = () => {
+    switch(active){
+      case 1: 
+        return <Dashboard />
+      case 2:
+        return <Dashboard />
+      case 3: 
+        return <Income />
+      case 4:
+        return <Expense />
+      default: 
+        return <Dashboard />
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppStyled>
+      <Navigation active={active} setActive={setActive}/>
+      <main>
+          {displayData()}
+      </main>
+    </AppStyled>
   );
 }
 
+const AppStyled = styled.div`
+  height: 100vh;
+  background: #F4F4F4;
+  main{
+    flex: 1;
+  }
+`;
+
 export default App;
+
