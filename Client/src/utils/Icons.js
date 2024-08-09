@@ -1,5 +1,5 @@
-export const signup = <i class="fa-solid fa-arrow-right-to-bracket"></i>
-export const dashboard = <i class="fa-solid fa-chart-simple"></i>
-export const transactions = <i class="fa-solid fa-file-invoice-dollar"></i>
-export const incomes = <i class="fa-solid fa-building-columns"></i>
-export const expenses = <i class="fa-solid fa-money-bill-transfer"></i>
+export const signup = <i class="material-symbols-outlined">logout</i>
+export const dashboard = <i class="material-symbols-outlined">bar_chart_4_bars</i>
+export const transactions = <i class="material-symbols-outlined">receipt_long</i>
+export const incomes = <i class="material-symbols-outlined">account_balance</i>
+export const expenses = <i class="material-symbols-outlined">mintmark</i>

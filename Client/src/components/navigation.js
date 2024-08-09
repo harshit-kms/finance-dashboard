@@ -33,21 +33,23 @@ function Navigation({active, setActive}) {
   }
   
 const NavStyled = styled.nav`
+    display: flex;
     background: #FFFFFF;
-    height: 100%;
+    height: 100vh;
     width: 20rem;
     border-width: 0px 1px 0px 0px;
     border-style: solid;
     border-color: #D9D9D9;
+    flex-direction: column;
     padding: 53px 10px 53px 10px;
     img{
-        width: 11.5rem;
+        width: 11rem;
         height: 2rem;
     }
     .navitems{
-        flex: 1;
         display: flex;
         flex-direction: column;
+        flex: 1;
         margin-top: 1rem;
         li{
             display: grid;
@@ -56,44 +58,33 @@ const NavStyled = styled.nav`
             margin: .6rem 0;
             font-weight: 500;
             cursor: pointer;
-            transition: all .4s ease-in-out;
             padding-left: 2rem;
             position: relative;
             span{
                 font-size: 1rem;
             }
-            i{
-                font-size: 1.125rem;
-            }
         }
         .active{
             height: 38px;
             width: 260px;
-            border-radius: 7px;             
+            border-radius: 0.438rem;             
             background-color: #6CC392;
             cursor: pointer;               
             color: #FFFFFF;
-            i{
-                color: #FFFFFF;
-            }
-            &::before{
-                content: "";
-                position: absolute;
-                width: 4px;
-                height: 100%;
-                background: #6CC392;
-                
-            }
+            padding: 0px 0px 0px 1rem;
+            margin-left: 1rem;
+            transition: background-color 0.2s, color 0.2s;
         }
     }
     .user-profile{
         display: flex;
         align-items: center;
         padding: .2rem;
-        margin-top: 27.5rem;
+        margin-top: auto;
+        margin-bottom: -2.5rem;
         img{
-            width: 60px;
-            height: 60px;
+            width: 3.75rem;
+            height: 3.75rem;
             border-radius: 50%;
             object-fit: cover;
             background: #D9D9D9;
@@ -101,7 +92,7 @@ const NavStyled = styled.nav`
             margin-right: .5rem;
         }
         h2{
-            font-size: 20px;
+            font-size: 1.25rem;
             font-weight: 500;
             margin-right: 1rem;
         }

@@ -4,9 +4,11 @@ function Dashboard(){
     return(
         <DashboardStyled>
         </DashboardStyled>
+ 
     );
 }
 
 const DashboardStyled = styled.div`
+    font-size: 10rem;
 `;
 export default Dashboard

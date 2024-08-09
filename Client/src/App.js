@@ -32,6 +32,7 @@ function App() {
 }
 
 const AppStyled = styled.div`
+  display: flex;
   height: 100vh;
   background: #F4F4F4;
   main{
