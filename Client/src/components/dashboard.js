@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-function Dashboard(){
-    return(
+function Dashboard() {
+    return (
         <DashboardStyled>
         </DashboardStyled>
  

@@ -1,13 +1,44 @@
 import React from "react";
 import styled from "styled-components";
-function Income(){
-    return(
+import { cards } from "../utils/cardItems";
+import Card from "../components/card.js";
+import HistoryLog from "../components/historyLog.js";
+function Income() {
+    return (
         <IncomeStyled>
+            <h1 className="title">Incomes</h1>
+            <h2 className="description">Manage and keep track of your income streams</h2>
+            <div className="card-container">
+                {cards.map((card) => (
+                    <Card icon={card.icon} title={card.title} money={card.money} />
+                ))}
+            </div>
+            <HistoryLog title="Income History" name_icon="call_received" name="Name" amount="$100" date="January 10, 2024" category="Freelance" />
         </IncomeStyled>
     );
 }
 
 const IncomeStyled = styled.div`
-
+    margin-top: 3.313rem;
+    margin-left: 1.875rem;
+    margin-right: 1.875rem;
+    .title{
+        font-size: 1.875rem;
+        font-weight: 600;
+    }
+    .description{
+        font-size: 1rem;
+        font-weight: 400;
+        color: #4B4B4B;
+        margin-bottom: 0.938rem;
+    }
+    .card-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.938rem
+    }
 `;
+
 export default Income

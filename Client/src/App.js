@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components";
 import Navigation from "../src/components/navigation.js";
 import Income from "../src/components/income.js";
@@ -8,24 +8,24 @@ function App() {
   const [active, setActive] = useState(1)
 
   const displayData = () => {
-    switch(active){
-      case 1: 
+    switch (active) {
+      case 1:
         return <Dashboard />
       case 2:
         return <Dashboard />
-      case 3: 
+      case 3:
         return <Income />
       case 4:
         return <Expense />
-      default: 
+      default:
         return <Dashboard />
     }
   }
   return (
     <AppStyled>
-      <Navigation active={active} setActive={setActive}/>
+      <Navigation active={active} setActive={setActive} />
       <main>
-          {displayData()}
+        {displayData()}
       </main>
     </AppStyled>
   );

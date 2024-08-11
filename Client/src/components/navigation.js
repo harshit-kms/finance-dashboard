@@ -2,36 +2,36 @@ import React from "react"
 import styled from "styled-components";
 import FinancyLogo from "../img/FinancyLogo.svg";
 import exampleProfile from "../img/exampleProfile.jpeg";
-import { signup } from "../utils/Icons"; 
+import { signup } from "../utils/Icons";
 import { navItems } from "../utils/navItems"
-function Navigation({active, setActive}) {
+function Navigation({ active, setActive }) {
     return (
-      <NavStyled>
-        <img src={FinancyLogo} alt="Financy Logo" />
-        <ul className="navitems">
-            {navItems.map((item) => {
+        <NavStyled>
+            <img src={FinancyLogo} alt="Financy Logo" />
+            <ul className="navitems">
+                {navItems.map((item) => {
                     return <li
                         key={item.id}
                         onClick={() => setActive(item.id)}
-                        className={active === item.id ? 'active': ''}
+                        className={active === item.id ? 'active' : ''}
                     >
                         {item.icon}
                         <span>{item.title}</span>
                     </li>
-            })}
-        </ul>
-        <div className="user-profile">
-            <img src={exampleProfile} alt="Profile" />
-            <div className="text">
-                <h2>First Last</h2>
-                <p>Current Role</p>
+                })}
+            </ul>
+            <div className="user-profile">
+                <img src={exampleProfile} alt="Profile" />
+                <div className="text">
+                    <h2>First Last</h2>
+                    <p>Current Role</p>
+                </div>
+                {signup}
             </div>
-            {signup} 
-        </div>
-      </NavStyled>
+        </NavStyled>
     );
-  }
-  
+}
+
 const NavStyled = styled.nav`
     display: flex;
     background: #FFFFFF;
@@ -101,6 +101,6 @@ const NavStyled = styled.nav`
         }
     }
 `;
-  
+
 export default Navigation;
 

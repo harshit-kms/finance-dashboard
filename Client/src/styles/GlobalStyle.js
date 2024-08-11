@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
     *{
@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
         list-style: none;
     }
     body{
-        font-family: "DM Sans", sans-serif;
+        font-family: "General Sans", sans-serif;
         font-size: clamp(1rem, 1.5vw, 1.2rem);
         overflow: hidden;
     }
