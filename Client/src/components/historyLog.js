@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-const HistoryLog = ({ title, name_icon, name, amount, date, category }) => {
+import { useGlobalContext } from "../context/globalContext.js";
+function HistoryLog({ title, name_icon, name, amount, date, category }){
     const [isIncomeModalOpen, setIncomeModalOpen] = useState(false);
     const [isFilterModalOpen, setFilterModalOpen] = useState(false);
 
@@ -10,8 +11,32 @@ const HistoryLog = ({ title, name_icon, name, amount, date, category }) => {
     const openFilterModal = () => setFilterModalOpen(true);
     const closeFilterModal = () => setFilterModalOpen(false);
 
+    const {addIncome} = useGlobalContext()
+
+    const [inputState, setInputState] = useState({
+        title: '',
+        amount: '',
+        date: '',
+        category: '',
+    })
+    const { title: inputTitle, amount: inputAmount, date: inputDate, category: inputCategory } = inputState
+    
+    const handleInput = name => e => {
+        setInputState({...inputState, [name]: e.target.value})
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        addIncome(inputState)
+        setInputState({
+            title: '',
+            amount: '',
+            date: '',
+            category: '',
+        })
+    }
     return (
-        <HistoryLogStyled>
+        <HistoryLogStyled onSubmit={handleSubmit}>
             <div className="header">
                 <div className="log-title">
                     <p>{title}</p>
@@ -40,19 +65,45 @@ const HistoryLog = ({ title, name_icon, name, amount, date, category }) => {
                                 <div className="modal-body">
                                     <div className="input">
                                         <p className="text">Title</p>
-                                        <input className="input-box" type="text" />
+                                        <input className="input-box" 
+                                            type="text" 
+                                            value={inputTitle}
+                                            name={'title'}
+                                            onChange={handleInput('title')}
+                                        />
                                     </div>
                                     <div className="input">
                                         <p className="text">Amount</p>
-                                        <input className="input-box" type="number" />
+                                        <input className="input-box" 
+                                            type="number" 
+                                            value={inputAmount}
+                                            name={'amount'}
+                                            onChange={handleInput('amount')}
+                                        />
                                     </div>
                                     <div className="input">
                                         <p className="text">Date</p>
-                                        <input className="input-box" type="date" />
+                                        <input className="input-box" 
+                                            type="date"
+                                            value={inputDate}
+                                            name={'date'}
+                                            onChange={(event) => {
+                                                setInputState({...inputState, date: event.target.value})
+                                            }}
+                                        />
                                     </div>
-                                    <div className="input">
+                                    <div className="selects input">
                                         <p className="text">Category</p>
-                                        <input className="input-box" type="text" />
+                                        <select required className="input-box" type="text" value={inputCategory} name="category" placeholder="Select Category" onChange={handleInput('category')}>
+                                            <option value="" disabled>Select Category</option>
+                                            <option value="salary">Salary</option>
+                                            <option value="freelance">Freelance</option>
+                                            <option value="investments">Investments</option>
+                                            <option value="stocks">Stocks</option>
+                                            <option value="bitcoin">Bitcoin</option>
+                                            <option value="banktransfer">Bank Transfer</option>
+                                            <option value="other">Other</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div className="modal-footer">
@@ -329,7 +380,7 @@ const IncomeModal = styled.div`
                 height: 2.75rem;
                 border-radius: 8px;
                 border: 1px solid #D9D9D9;
-                padding: 0.625rem; 
+                padding: 0.625rem;
             }
         }
     }

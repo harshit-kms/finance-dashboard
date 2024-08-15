@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { cards } from "../utils/cardItems";
 import Card from "../components/card.js";
 import HistoryLog from "../components/historyLog.js";
+import { useGlobalContext } from "../context/globalContext.js";
 function Income() {
+    const {addIncome} = useGlobalContext
     return (
         <IncomeStyled>
             <h1 className="title">Incomes</h1>

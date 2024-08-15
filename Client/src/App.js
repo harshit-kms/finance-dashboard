@@ -4,9 +4,12 @@ import Navigation from "../src/components/navigation.js";
 import Income from "../src/components/income.js";
 import Expense from "../src/components/expense.js";
 import Dashboard from "../src/components/dashboard.js";
+import { useGlobalContext } from './context/globalContext.js';
 function App() {
   const [active, setActive] = useState(1)
 
+  const global = useGlobalContext()
+  console.log(global)
   const displayData = () => {
     switch (active) {
       case 1:
