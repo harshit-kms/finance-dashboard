@@ -4,7 +4,7 @@ const Card = ({ icon, title, money }) => {
     return (
         <CardStyled>
             <div className="icon-bg">
-                <Icon className="material-symbols-outlined">{icon}</Icon>
+                <Icon className="material-symbols-rounded">{icon}</Icon>
             </div>
             <div>
                 <p className="card-title">{title}</p>

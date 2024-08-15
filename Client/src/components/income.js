@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { cards } from "../utils/cardItems";
 import Card from "../components/card.js";
 import HistoryLog from "../components/historyLog.js";
 import { useGlobalContext } from "../context/globalContext.js";
 function Income() {
-    const {addIncome} = useGlobalContext
+    const { getIncomes } = useGlobalContext();
+
+    // useEffect(() => {
+    //     getIncomes()
+    // }, [])
+
     return (
         <IncomeStyled>
             <h1 className="title">Incomes</h1>
@@ -15,7 +20,9 @@ function Income() {
                     <Card icon={card.icon} title={card.title} money={card.money} />
                 ))}
             </div>
-            <HistoryLog title="Income History" name_icon="call_received" name="Name" amount="$100" date="January 10, 2024" category="Freelance" />
+            <HistoryLog
+                title="Income History" transactionType="income"
+            />
         </IncomeStyled>
     );
 }
