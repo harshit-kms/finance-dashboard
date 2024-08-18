@@ -3,3 +3,10 @@ export const dashboard = <i class="material-symbols-outlined">bar_chart_4_bars</
 export const transactions = <i class="material-symbols-outlined">receipt_long</i>
 export const incomes = <i class="material-symbols-outlined">account_balance</i>
 export const expenses = <i class="material-symbols-outlined">mintmark</i>
+export const salary = <i class="material-symbols-outlined">local_atm</i>
+export const freelance = <i class="material-symbols-outlined">computer</i>
+export const investments = <i class="material-symbols-outlined">psychiatry</i>
+export const stocks = <i class="material-symbols-outlined">monitoring</i>
+export const bitcoin = <i class="material-symbols-outlined">currency_bitcoin</i>
+export const banktransfer = <i class="material-symbols-outlined">account_balance</i>
+export const other = <i class="material-symbols-outlined">more_horiz</i>

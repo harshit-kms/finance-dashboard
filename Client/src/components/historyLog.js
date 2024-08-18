@@ -1,14 +1,41 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useGlobalContext } from "../context/globalContext.js";
 import TransactionInput from './transactionInput';
+import { dateFormat } from '../utils/dateFormat';
+import { salary, freelance, investments, stocks, bitcoin, banktransfer, other} from "../utils/Icons"; 
+
 function HistoryLog({ title, transactionType }) {
+
     const { incomes, expenses } = useGlobalContext();
 
-    const transactions = transactionType === 'all'
-        ? [...incomes, ...expenses].sort((a, b) => new Date(b.date) - new Date(a.date))
-        : transactionType === 'income' ? incomes : expenses;
-
+    let transactions = [];
+    if (transactionType === 'all') {
+        transactions = [...(Array.isArray(incomes) ? incomes : []), ...(Array.isArray(expenses) ? expenses : [])];
+        transactions.sort((a, b) => new Date(b.date) - new Date(a.date));
+    } else if (transactionType === 'income') {
+        transactions = Array.isArray(incomes) ? incomes : [];
+    } else {
+        transactions = Array.isArray(expenses) ? expenses : [];
+    }
+    const getCategoryIcon = (category) => {
+        switch (category) {
+            case 'Salary':
+                return salary;
+            case 'Freelance':
+                return freelance;
+            case 'Investments':
+                return investments;
+            case 'Stocks':
+                return stocks;
+            case 'Bitcoin':
+                return bitcoin;
+            case 'Bank Transfer':
+                return banktransfer;
+            default:
+                return other; // Default icon if none of the categories match
+        }
+    };
     return (
         <HistoryLogStyled>
             <div className="header">
@@ -22,28 +49,34 @@ function HistoryLog({ title, transactionType }) {
                 <div className="category-label"><p>Category</p></div>
                 {transactionType === 'all' && <div className="type-label"><p>Type</p></div>}
             </div>
-            {transactions.map((transaction, index) => (
-                <div className="transaction" key={index}>
-                    <div className="name">
-                        <div className="name-icon-bg">
-                            <NameIcon className="material-symbols-outlined">
-                                {transaction.type === 'income' ? 'call_received' : 'call_made'}
-                            </NameIcon>
-                        </div>
-                        <p>{transaction.title}</p>
-                    </div>
-                    <div className="amount"><p>${transaction.amount}</p></div>
-                    <div className="date"><p>{transaction.date}</p></div>
-                    <div className="category">
-                        <div className="category-box"><p>{transaction.category}</p></div>
-                    </div>
-                    {transactionType === 'all' && (
-                        <div className="type">
-                            <p>{transaction.type}</p>
-                        </div>
-                    )}
+            {transactions.length === 0 ? (
+                <div className="no-transaction">
+                    <p>No Transactions</p>
                 </div>
-            ))}
+            ) : (
+                transactions.map((transaction, index) => (
+                    <div className="transaction" key={index}>
+                        <div className="name">
+                            <div className="name-icon-bg">
+                                <NameIcon className="material-symbols-outlined">
+                                    {getCategoryIcon(transaction.category)}
+                                </NameIcon>
+                            </div>
+                            <p>{transaction.title}</p>
+                        </div>
+                        <div className="amount"><p>${transaction.amount}</p></div>
+                        <div className="date"><p>{dateFormat(transaction.date)}</p></div>
+                        <div className="category">
+                            <div className="category-box"><p>{transaction.category}</p></div>
+                        </div>
+                        {transactionType === 'all' && (
+                            <div className="type">
+                                <p>{transaction.type}</p>
+                            </div>
+                        )}
+                    </div>
+                ))
+            )}
         </HistoryLogStyled>
     );
 };

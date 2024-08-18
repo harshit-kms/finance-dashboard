@@ -4,12 +4,14 @@ import { cards } from "../utils/cardItems";
 import Card from "../components/card.js";
 import HistoryLog from "../components/historyLog.js";
 import { useGlobalContext } from "../context/globalContext.js";
-function Income() {
-    const { getIncomes } = useGlobalContext();
 
-    // useEffect(() => {
-    //     getIncomes()
-    // }, [])
+function Income() {
+    
+    const { addIncome, incomes, getIncomes } = useGlobalContext();
+
+    useEffect(() => {
+         getIncomes()
+    }, [])
 
     return (
         <IncomeStyled>
@@ -23,6 +25,7 @@ function Income() {
             <HistoryLog
                 title="Income History" transactionType="income"
             />
+            
         </IncomeStyled>
     );
 }

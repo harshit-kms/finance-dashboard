@@ -11,21 +11,17 @@ export const GlobalProvider = ({ children }) => {
     const [error, setError] = useState(null)
     const addIncome = async (income) => {
         const response = await axios.post(`${BASE_URL}add-income`, income)
-            .catch((err) => {
-                setError(err.response.data.message)
-            })
+            setIncomes(response.data)
     }
 
     const getIncomes = async () => {
-        const response = await axios.get(`${BASE_URL}get-incomes`)
+        const response = await axios.get(`${BASE_URL}get-income`)
         setIncomes(response.data)
     }
 
     const addExpense = async (expense) => {
         const response = await axios.post(`${BASE_URL}add-expense`, expense)
-            .catch((err) => {
-                setError(err.response.data.message)
-            })
+        setExpenses(response.data)
     }
 
     const getExpenses = async () => {

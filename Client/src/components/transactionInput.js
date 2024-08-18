@@ -4,7 +4,7 @@ import { useGlobalContext } from '../context/globalContext';
 
 const TransactionInput = ({ transactionType }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const { addIncome, addExpense } = useGlobalContext();
+    const { addIncome, getIncomes, addExpense } = useGlobalContext();
 
     // const [isFilterModalOpen, setFilterModalOpen] = useState(false);
 
@@ -87,6 +87,7 @@ const TransactionInput = ({ transactionType }) => {
                                         type="date"
                                         value={inputDate}
                                         name="date"
+                                        dateFormat="dd/MM/yyyy"
                                         onChange={handleInput('date')}
                                         required
                                     />
@@ -102,13 +103,13 @@ const TransactionInput = ({ transactionType }) => {
                                         <option value="" disabled>Select Category</option>
                                         {transactionType === 'income' ? (
                                             <>
-                                                <option value="salary">Salary</option>
-                                                <option value="freelance">Freelance</option>
-                                                <option value="investments">Investments</option>
-                                                <option value="stocks">Stocks</option>
-                                                <option value="bitcoin">Bitcoin</option>
-                                                <option value="banktransfer">Bank Transfer</option>
-                                                <option value="other">Other</option>
+                                                <option value="Salary">Salary</option>
+                                                <option value="Freelance">Freelance</option>
+                                                <option value="Investments">Investments</option>
+                                                <option value="Stocks">Stocks</option>
+                                                <option value="Bitcoin">Bitcoin</option>
+                                                <option value="Banktransfer">Bank Transfer</option>
+                                                <option value="Other">Other</option>
                                             </>
                                         ) : (
                                             <>

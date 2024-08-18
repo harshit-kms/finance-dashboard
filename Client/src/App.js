@@ -40,6 +40,7 @@ const AppStyled = styled.div`
   background: #F4F4F4;
   main{
     flex: 1;
+    overflow: auto;
   }
 `;
 
