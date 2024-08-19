@@ -6,12 +6,20 @@ import HistoryLog from "../components/historyLog.js";
 import { useGlobalContext } from "../context/globalContext.js";
 
 function Income() {
+<<<<<<< HEAD
     
     const { addIncome, incomes, getIncomes, deleteIncome } = useGlobalContext();
 
     useEffect(() => {
          getIncomes()
 
+=======
+
+    const { addIncome, incomes, getIncomes } = useGlobalContext();
+
+    useEffect(() => {
+        getIncomes()
+>>>>>>> refs/remotes/origin/main
     }, [])
 
     return (
@@ -26,8 +34,12 @@ function Income() {
             <HistoryLog
                 title="Income History" transactionType="income" deleteItem={deleteIncome}
             />
+<<<<<<< HEAD
             
             
+=======
+
+>>>>>>> refs/remotes/origin/main
         </IncomeStyled>
     );
 }
