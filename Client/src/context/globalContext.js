@@ -10,9 +10,14 @@ export const GlobalProvider = ({ children }) => {
     const [expenses, setExpenses] = useState([])
     const [error, setError] = useState(null)
     const addIncome = async (income) => {
-        const response = await axios.post(`${BASE_URL}add-income`, income)
-            setIncomes(response.data)
-    }
+        try {
+            await axios.post(`${BASE_URL}add-income`, { ...income, type: 'income' });
+            getIncomes();
+        }
+        catch (err) {
+            setError(err.response?.data?.message || 'An error occurred while adding income');
+        }
+    };
 
     const getIncomes = async () => {
         const response = await axios.get(`${BASE_URL}get-income`)
@@ -20,14 +25,37 @@ export const GlobalProvider = ({ children }) => {
     }
 
     const addExpense = async (expense) => {
-        const response = await axios.post(`${BASE_URL}add-expense`, expense)
-        setExpenses(response.data)
-    }
+        try {
+            await axios.post(`${BASE_URL}add-expense`, { ...expense, type: 'expense' });
+            getExpenses();
+        }
+        catch (err) {
+            setError(err.response?.data?.message || 'An error occurred while adding expense');
+        }
+    };
 
     const getExpenses = async () => {
         const response = await axios.get(`${BASE_URL}get-expenses`)
         setExpenses(response.data)
     }
+
+    const deleteIncome = async (id) => {
+        try {
+            await axios.delete(`${BASE_URL}delete-income/${id}`);
+            getIncomes();
+        } catch (err) {
+            setError(err.response?.data?.message || 'An error occurred while deleting income');
+        }
+    };
+
+    const deleteExpense = async (id) => {
+        try {
+            await axios.delete(`${BASE_URL}delete-expense/${id}`);
+            getExpenses();
+        } catch (err) {
+            setError(err.response?.data?.message || 'An error occurred while deleting expense');
+        }
+    };
 
     return (
         <GlobalContext.Provider value={{
@@ -37,6 +65,8 @@ export const GlobalProvider = ({ children }) => {
             addExpense,
             getExpenses,
             expenses,
+            deleteIncome,
+            deleteExpense,
             error
         }}>
             {children}

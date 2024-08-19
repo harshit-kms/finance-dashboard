@@ -6,11 +6,11 @@ import HistoryLog from "../components/historyLog.js";
 import { useGlobalContext } from "../context/globalContext.js";
 
 function Income() {
-    
+
     const { addIncome, incomes, getIncomes } = useGlobalContext();
 
     useEffect(() => {
-         getIncomes()
+        getIncomes()
     }, [])
 
     return (
@@ -25,7 +25,7 @@ function Income() {
             <HistoryLog
                 title="Income History" transactionType="income"
             />
-            
+
         </IncomeStyled>
     );
 }

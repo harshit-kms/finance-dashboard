@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useGlobalContext } from "../context/globalContext.js";
 import TransactionInput from './transactionInput';
 import { dateFormat } from '../utils/dateFormat';
-import { salary, freelance, investments, stocks, bitcoin, banktransfer, other} from "../utils/Icons"; 
+import { salary, freelance, investments, stocks, bitcoin, banktransfer, other } from "../utils/Icons";
 
 function HistoryLog({ title, transactionType }) {
 
@@ -68,6 +68,7 @@ function HistoryLog({ title, transactionType }) {
                         <div className="date"><p>{dateFormat(transaction.date)}</p></div>
                         <div className="category">
                             <div className="category-box"><p>{transaction.category}</p></div>
+                            <DeleteButton className="material-symbols-outlined">call_received</DeleteButton>
                         </div>
                         {transactionType === 'all' && (
                             <div className="type">
@@ -182,6 +183,17 @@ const HistoryLogStyled = styled.div`
 `;
 
 const NameIcon = styled.div`
+    color: #354F52;
+    .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+`;
+
+const DeleteButton = styled.div`
     color: #354F52;
     .material-symbols-outlined {
         font-variation-settings:
