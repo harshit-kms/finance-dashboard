@@ -10,3 +10,4 @@ export const stocks = <i class="material-symbols-outlined">monitoring</i>
 export const bitcoin = <i class="material-symbols-outlined">currency_bitcoin</i>
 export const banktransfer = <i class="material-symbols-outlined">account_balance</i>
 export const other = <i class="material-symbols-outlined">more_horiz</i>
+export const trash = <i class="material-symbols-outlined">delete</i>

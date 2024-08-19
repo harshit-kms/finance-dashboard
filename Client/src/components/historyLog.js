@@ -3,9 +3,17 @@ import styled from "styled-components";
 import { useGlobalContext } from "../context/globalContext.js";
 import TransactionInput from './transactionInput';
 import { dateFormat } from '../utils/dateFormat';
-import { salary, freelance, investments, stocks, bitcoin, banktransfer, other} from "../utils/Icons"; 
+import { salary, freelance, investments, stocks, bitcoin, banktransfer, other, trash} from "../utils/Icons"; 
 
-function HistoryLog({ title, transactionType }) {
+function HistoryLog({ 
+    id,
+    title,
+    amount,
+    date,
+    category,
+    deleteItem,
+    transactionType
+}) {
 
     const { incomes, expenses } = useGlobalContext();
 
@@ -54,8 +62,8 @@ function HistoryLog({ title, transactionType }) {
                     <p>No Transactions</p>
                 </div>
             ) : (
-                transactions.map((transaction, index) => (
-                    <div className="transaction" key={index}>
+                transactions.map((transaction,  _id, title, amount, date, category, type ) => (
+                    <div className="transaction" key={transaction._id}>
                         <div className="name">
                             <div className="name-icon-bg">
                                 <NameIcon className="material-symbols-outlined">
@@ -69,6 +77,14 @@ function HistoryLog({ title, transactionType }) {
                         <div className="category">
                             <div className="category-box"><p>{transaction.category}</p></div>
                         </div>
+                        <div>
+                        <SubmitButton onClick={() => {
+                            console.log('Button clicked with id:', transactions._id);
+                            deleteItem(transaction._id);
+                        }} title="Delete">
+                            {trash}
+                    </SubmitButton>
+                        </div>
                         {transactionType === 'all' && (
                             <div className="type">
                                 <p>{transaction.type}</p>
@@ -77,6 +93,7 @@ function HistoryLog({ title, transactionType }) {
                     </div>
                 ))
             )}
+            
         </HistoryLogStyled>
     );
 };
@@ -191,7 +208,12 @@ const NameIcon = styled.div`
         'opsz' 24
     }
 `;
-
+const SubmitButton = styled.button`
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    transition: all 0.4s ease-in-out;
+`;
 // const FilterModal = styled.div`
 //     background-color: #FFFFFF;
 //     padding: 1.25rem 1.25rem 1.25rem 1.25rem;

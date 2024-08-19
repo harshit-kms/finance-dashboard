@@ -7,10 +7,11 @@ import { useGlobalContext } from "../context/globalContext.js";
 
 function Income() {
     
-    const { addIncome, incomes, getIncomes } = useGlobalContext();
+    const { addIncome, incomes, getIncomes, deleteIncome } = useGlobalContext();
 
     useEffect(() => {
          getIncomes()
+
     }, [])
 
     return (
@@ -23,8 +24,9 @@ function Income() {
                 ))}
             </div>
             <HistoryLog
-                title="Income History" transactionType="income"
+                title="Income History" transactionType="income" deleteItem={deleteIncome}
             />
+            
             
         </IncomeStyled>
     );
