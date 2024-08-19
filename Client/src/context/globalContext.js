@@ -10,20 +10,9 @@ export const GlobalProvider = ({ children }) => {
     const [expenses, setExpenses] = useState([])
     const [error, setError] = useState(null)
     const addIncome = async (income) => {
-<<<<<<< HEAD
         const response = await axios.post(`${BASE_URL}add-income`, income)
             getIncomes()
     }
-=======
-        try {
-            await axios.post(`${BASE_URL}add-income`, { ...income, type: 'income' });
-            getIncomes();
-        }
-        catch (err) {
-            setError(err.response?.data?.message || 'An error occurred while adding income');
-        }
-    };
->>>>>>> refs/remotes/origin/main
 
     const getIncomes = async () => {
         const response = await axios.get(`${BASE_URL}get-income`)
@@ -48,15 +37,6 @@ export const GlobalProvider = ({ children }) => {
         const response = await axios.get(`${BASE_URL}get-expenses`)
         setExpenses(response.data)
     }
-
-    const deleteIncome = async (id) => {
-        try {
-            await axios.delete(`${BASE_URL}delete-income/${id}`);
-            getIncomes();
-        } catch (err) {
-            setError(err.response?.data?.message || 'An error occurred while deleting income');
-        }
-    };
 
     const deleteExpense = async (id) => {
         try {
