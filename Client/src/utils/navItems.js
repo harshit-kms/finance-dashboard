@@ -1,27 +1,27 @@
-import { dashboard, transactions, incomes, expenses } from "../utils/Icons";
+import Icons from "../utils/Icons";
 export const navItems = [
     {
         id: 1,
         title: "Dashboard",
-        icon: dashboard,
+        icon: Icons.dashboard,
         link: "/dashboard"
     },
     {
         id: 2,
         title: "Transactions",
-        icon: transactions,
+        icon: Icons.transactions,
         link: "/dashboard"
     },
     {
         id: 3,
         title: "Incomes",
-        icon: incomes,
+        icon: Icons.incomes,
         link: "/dashboard"
     },
     {
         id: 4,
         title: "Expenses",
-        icon: expenses,
+        icon: Icons.expenses,
         link: "/dashboard"
     },
 ]

@@ -24,8 +24,7 @@ const CardStyled = styled.div`
     flex-direction: row;
     justify-content: left;
     align-items: center;
-    padding-left: 0.938rem;
-    padding-right:0.938rem;
+    padding: 0 0.938rem;
     .card-title{
         font-size: 1.25rem;
         font-weight: 500;
@@ -38,18 +37,25 @@ const CardStyled = styled.div`
     }
     .icon-bg{
         background: #D9D9D9;
-        width: 3rem;
+        min-width: 3rem;
         height: 3rem;
         border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
+    @media (max-width: 1439px) {
+        width: calc(50% - 0.469rem); // 2x2 layout
+    }
+
+    @media (max-width: 895px) {
+        width: 100%; // 1x4 layout
+    }
 `;
 
 const Icon = styled.i`
     color: #4B4B4B;
-    .material-symbols-outlined {
+    .material-symbols-rounded {
         font-variation-settings:
         'FILL' 0,
         'wght' 400,

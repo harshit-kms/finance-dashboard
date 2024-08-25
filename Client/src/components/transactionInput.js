@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../context/globalContext';
+import { formatNumber } from '../utils/amountFormat';
 
 const TransactionInput = ({ transactionType }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const { addIncome, getIncomes, addExpense } = useGlobalContext();
-
-    // const [isFilterModalOpen, setFilterModalOpen] = useState(false);
-
-
-    // const openFilterModal = () => setFilterModalOpen(true);
-    // const closeFilterModal = () => setFilterModalOpen(false);
-
+    const { addIncome, addExpense } = useGlobalContext();
+    const [error, setError] = useState('');
     const [inputState, setInputState] = useState({
         title: '',
         amount: '',
@@ -22,15 +17,29 @@ const TransactionInput = ({ transactionType }) => {
     const { title: inputTitle, amount: inputAmount, date: inputDate, category: inputCategory } = inputState;
 
     const handleInput = name => e => {
-        setInputState({ ...inputState, [name]: e.target.value })
+        let value = e.target.value;
+        if (name === 'amount') {
+            if (!/^[\d,]*\.?\d{0,2}$/.test(value)) {
+                setError('Please enter a valid amount with up to two decimal places.');
+            } else {
+                setError('');
+            }
+        }
+        setInputState({ ...inputState, [name]: value });
     }
+
 
     const handleSubmit = e => {
         e.preventDefault();
+        const formattedAmount = formatNumber(inputAmount);
+        const updatedInputState = {
+            ...inputState,
+            amount: formattedAmount
+        };
         if (transactionType === 'income') {
-            addIncome(inputState);
+            addIncome(updatedInputState);
         } else if (transactionType === 'expense') {
-            addExpense(inputState);
+            addExpense(updatedInputState);
         }
         setInputState({
             title: '',
@@ -62,38 +71,40 @@ const TransactionInput = ({ transactionType }) => {
                         <form onSubmit={handleSubmit}>
                             <div className="modal-body">
                                 <InputField>
-                                    <label>Title</label>
+                                    <h3>Title</h3>
                                     <input
                                         type="text"
                                         value={inputTitle}
                                         name="title"
+                                        placeholder="Title"
                                         onChange={handleInput('title')}
                                         required
                                     />
                                 </InputField>
                                 <InputField>
-                                    <label>Amount</label>
+                                    <h3>Amount</h3>
                                     <input
-                                        type="number"
+                                        type="text"
                                         value={inputAmount}
                                         name="amount"
+                                        placeholder="0.00"
                                         onChange={handleInput('amount')}
                                         required
                                     />
+                                    {error && <ErrorMessage>{error}</ErrorMessage>}
                                 </InputField>
                                 <InputField>
-                                    <label>Date</label>
+                                    <h3>Date</h3>
                                     <input
                                         type="date"
                                         value={inputDate}
                                         name="date"
-                                        dateFormat="dd/MM/yyyy"
                                         onChange={handleInput('date')}
                                         required
                                     />
                                 </InputField>
                                 <InputField>
-                                    <label>Category</label>
+                                    <h3>Category</h3>
                                     <select
                                         value={inputCategory}
                                         name="category"
@@ -108,25 +119,26 @@ const TransactionInput = ({ transactionType }) => {
                                                 <option value="Investments">Investments</option>
                                                 <option value="Stocks">Stocks</option>
                                                 <option value="Bitcoin">Bitcoin</option>
-                                                <option value="Banktransfer">Bank Transfer</option>
+                                                <option value="Bank Transfer">Bank Transfer</option>
                                                 <option value="Other">Other</option>
                                             </>
                                         ) : (
                                             <>
-                                                <option value="education">Education</option>
-                                                <option value="groceries">Groceries</option>
-                                                <option value="health">Health</option>
-                                                <option value="subscriptions">Subscriptions</option>
-                                                <option value="restaurants">Restaurants</option>
-                                                <option value="shopping">Shopping</option>
-                                                <option value="traveling">Traveling</option>
+                                                <option value="Education">Education</option>
+                                                <option value="Groceries">Groceries</option>
+                                                <option value="Health">Health</option>
+                                                <option value="Subscriptions">Subscriptions</option>
+                                                <option value="Food">Food</option>
+                                                <option value="Shopping">Shopping</option>
+                                                <option value="Traveling">Traveling</option>
+                                                <option value="Other">Other</option>
                                             </>
                                         )}
                                     </select>
                                 </InputField>
                             </div>
                             <div className="modal-footer">
-                                <SubmitButton type="submit">Add {transactionType === 'income' ? 'Income' : 'Expense'}</SubmitButton>
+                                <SubmitButton type="submit" disabled={!!error}>Add {transactionType === 'income' ? 'Income' : 'Expense'}</SubmitButton>
                             </div>
                         </form>
                     </Modal>
@@ -152,6 +164,9 @@ const Button = styled.button`
     padding-right: 0.625rem;
     padding-top: 0.375rem;
     padding-bottom: 0.375rem;
+    p {
+        text-align: left;
+    }
 `;
 
 const ButtonIcon = styled.div`
@@ -266,6 +281,11 @@ const SubmitButton = styled.button`
     border: none;
     cursor: pointer;
     transition: all 0.4s ease-in-out;
+`;
+
+const ErrorMessage = styled.div`
+    color: red;
+    font-size: 1rem;
 `;
 
 export default TransactionInput;

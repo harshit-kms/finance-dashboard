@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components";
 import FinancyLogo from "../img/FinancyLogo.svg";
 import exampleProfile from "../img/exampleProfile.jpeg";
-import { signup } from "../utils/Icons";
+import Icons from "../utils/Icons";
 import { navItems } from "../utils/navItems"
 function Navigation({ active, setActive }) {
     return (
@@ -26,7 +26,7 @@ function Navigation({ active, setActive }) {
                     <h2>First Last</h2>
                     <p>Current Role</p>
                 </div>
-                {signup}
+                {Icons.signup}
             </div>
         </NavStyled>
     );
@@ -36,14 +36,14 @@ const NavStyled = styled.nav`
     display: flex;
     background: #FFFFFF;
     height: 100vh;
-    width: 20rem;
+    width: 18rem;
     border-width: 0px 1px 0px 0px;
     border-style: solid;
     border-color: #D9D9D9;
     flex-direction: column;
-    padding: 53px 10px 53px 10px;
+    padding: 3.313rem 1.25rem;
     img{
-        width: 11rem;
+        width: 8.8rem;
         height: 2rem;
     }
     .navitems{
@@ -58,21 +58,20 @@ const NavStyled = styled.nav`
             margin: .6rem 0;
             font-weight: 500;
             cursor: pointer;
-            padding-left: 2rem;
             position: relative;
+            padding-left: 0.625rem;
             span{
                 font-size: 1rem;
             }
         }
         .active{
             height: 38px;
-            width: 260px;
+            width: 100%;
             border-radius: 0.438rem;             
             background-color: #6CC392;
             cursor: pointer;               
             color: #FFFFFF;
-            padding: 0px 0px 0px 1rem;
-            margin-left: 1rem;
+            padding-left: 0.625rem;
             transition: background-color 0.2s, color 0.2s;
         }
     }
@@ -100,7 +99,9 @@ const NavStyled = styled.nav`
             font-size: 16px;
         }
     }
+    @media (max-width: 600px) {
+        display: none;
+    }
 `;
 
 export default Navigation;
-

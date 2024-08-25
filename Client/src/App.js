@@ -4,18 +4,16 @@ import Navigation from "../src/components/navigation.js";
 import Income from "../src/components/income.js";
 import Expense from "../src/components/expense.js";
 import Dashboard from "../src/components/dashboard.js";
-import { useGlobalContext } from './context/globalContext.js';
+import TransactionHistory from './components/transactionHistory.js';
 function App() {
   const [active, setActive] = useState(1)
 
-  const global = useGlobalContext()
-  console.log(global)
   const displayData = () => {
     switch (active) {
       case 1:
         return <Dashboard />
       case 2:
-        return <Dashboard />
+        return <TransactionHistory />
       case 3:
         return <Income />
       case 4:
@@ -45,4 +43,3 @@ const AppStyled = styled.div`
 `;
 
 export default App;
-
