@@ -6,7 +6,7 @@ import { dateFormat } from '../utils/dateFormat';
 import Icons from '../utils/Icons';
 import { formatNumber } from "../utils/amountFormat";
 
-function HistoryLog({ title, transactionType }) {
+function HistoryLog({ title, transactionType, limit }) {
 
     const { incomes, expenses, deleteIncome, deleteExpense } = useGlobalContext();
 
@@ -14,6 +14,7 @@ function HistoryLog({ title, transactionType }) {
     if (transactionType === 'all') {
         transactions = [...(Array.isArray(incomes) ? incomes : []), ...(Array.isArray(expenses) ? expenses : [])];
         transactions.sort((a, b) => new Date(b.date) - new Date(a.date));
+        transactions = transactions.slice(0, limit);
     } else if (transactionType === 'income') {
         transactions = Array.isArray(incomes) ? incomes : [];
     } else {

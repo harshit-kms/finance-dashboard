@@ -4,7 +4,10 @@ import FinancyLogo from "../img/FinancyLogo.svg";
 import exampleProfile from "../img/exampleProfile.jpeg";
 import Icons from "../utils/Icons";
 import { navItems } from "../utils/navItems"
+import { useUser } from '../context/userContext';
+import { Link } from 'react-router-dom';
 function Navigation({ active, setActive }) {
+    const { user } = useUser();
     return (
         <NavStyled>
             <img src={FinancyLogo} alt="Financy Logo" />
@@ -23,10 +26,11 @@ function Navigation({ active, setActive }) {
             <div className="user-profile">
                 <img src={exampleProfile} alt="Profile" />
                 <div className="text">
-                    <h2>First Last</h2>
-                    <p>Current Role</p>
+                    <h2>{user.firstName} {user.lastName}</h2>
                 </div>
-                {Icons.signup}
+                <Link className="icon" to="/login">
+                    {Icons.signup}
+                </Link>
             </div>
         </NavStyled>
     );
@@ -93,11 +97,22 @@ const NavStyled = styled.nav`
         h2{
             font-size: 1.25rem;
             font-weight: 500;
-            margin-right: 1rem;
+            margin-right: .5rem;
+            margin-bottom: .3rem;
         }
         p{
             font-size: 16px;
         }
+    }
+    .icon{
+        cursor: 'pointer';
+        color: black;
+    }
+    .icon:hover {
+        color: #6CC392;
+    }
+    .icon:active {
+        color: #6CC392;
     }
     @media (max-width: 600px) {
         display: none;

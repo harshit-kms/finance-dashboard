@@ -13,7 +13,7 @@ function Expense() {
     }, [])
 
     const cards = [
-        { icon: "call_received", title: "Total Expense", money: `$${totalExpense().toFixed(2)}` },
+        { icon: "call_made", title: "Total Expense", money: `$${totalExpense().toFixed(2)}` },
         { icon: "arrow_downward", title: "Minimum", money: `$${Math.min(...expenses.map(item => item.amount)).toFixed(2)}` },
         { icon: "arrow_upward", title: "Maximum", money: `$${Math.max(...expenses.map(item => item.amount)).toFixed(2)}` },
         { icon: "compress", title: "Average", money: `$${(totalExpense() / expenses.length).toFixed(2)}` }
