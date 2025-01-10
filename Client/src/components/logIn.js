@@ -2,32 +2,32 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import FinancyLogo from "../img/FinancyLogo.svg";
 import Button from "../components/button.js"
-import {Link, useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useUser } from '../context/userContext';
 
 const BASE_URL = "http://localhost:5050/api/";
 
-function LogIn(){
+function LogIn() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
     const { setUser } = useUser();
     const handleClick = (e) => {
         e.preventDefault()
-        axios.post(`${BASE_URL}login`, {email, password})
-        .then(result => {
-            console.log(result);
-            if (result.data.message === "Success") {
-                setUser(result.data.user);
-                navigate('/home');
-            } else {
-                console.log("Unexpected response:", result.data);
-            }
-        })
-        .catch(err => {
-            console.log("Error:", err);
-        });
+        axios.post(`${BASE_URL}login`, { email, password })
+            .then(result => {
+                console.log(result);
+                if (result.data.message === "Success") {
+                    setUser(result.data.user);
+                    navigate('/home');
+                } else {
+                    console.log("Unexpected response:", result.data);
+                }
+            })
+            .catch(err => {
+                console.log("Error:", err);
+            });
     };
 
     return (
@@ -41,24 +41,20 @@ function LogIn(){
                     </div>
                     <div>
                         <h6>Email</h6>
-                        <input 
+                        <input
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
                         <h6>Password</h6>
-                        <input  
+                        <input
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                         <Button onClick={handleClick}>Log In</Button>
-                        {/*<h6 style={{ marginTop: '5px' }}>
-                            Don't have an account? <Link to='/register' style={{ color: '#4EBC84', fontWeight: 'bold', textDecoration: 'none' }}>Sign Up</Link>
-                        </h6>
-                        */}
                     </div>
                 </div>
             </div>
-            
+
         </LogInStyled>
     )
 };
@@ -72,7 +68,8 @@ const LogInStyled = styled.div`
     .menu{
         width: 430px;
         height: 450px;
-        border: 1px; 
+        border: 1px;
+        border-radius: 0.5rem;
         
         width: 430px;
         background: white;

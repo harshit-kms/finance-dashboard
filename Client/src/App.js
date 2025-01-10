@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import styled from "styled-components";
 import Navigation from "../src/components/navigation.js";
 import Income from "../src/components/income.js";
 import Expense from "../src/components/expense.js";
 import Dashboard from "../src/components/dashboard.js";
 import TransactionHistory from './components/transactionHistory.js';
-import SignUp from '../src/components/signUp.js'
 import LogIn from '../src/components/logIn.js'
 import { UserProvider } from './context/userContext';
 function App() {

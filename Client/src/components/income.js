@@ -9,8 +9,8 @@ function Income() {
     const { getIncomes, totalIncome, incomes } = useGlobalContext();
 
     useEffect(() => {
-        getIncomes()
-    }, [])
+        getIncomes();
+    }, []);
 
     const cards = [
         { icon: "call_received", title: "Total Income", money: `$${totalIncome().toFixed(2)}` },
@@ -61,8 +61,9 @@ const IncomeStyled = styled.div`
     .card-container{
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
+        justify-content: space-between;
         gap: 0.938rem;
+        width: 100%;
     }
     @media (max-width: 1439px) {
         max-width: 50rem;
@@ -70,4 +71,4 @@ const IncomeStyled = styled.div`
     }
 `;
 
-export default Income
+export default Income;

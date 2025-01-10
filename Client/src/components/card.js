@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-const Card = ({ icon, title, money }) => {
+const Card = ({ icon, title, money, flexBasis }) => {
     return (
-        <CardStyled>
+        <CardStyled flexBasis={flexBasis}>
             <div className="icon-bg">
                 <Icon className="material-symbols-rounded">{icon}</Icon>
             </div>
@@ -12,19 +12,20 @@ const Card = ({ icon, title, money }) => {
             </div>
         </CardStyled>
     );
-}
+};
 
 const CardStyled = styled.div`
     background: #FFFFFF;
     // box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    width: 15.856rem;
     height: 6.25rem;
     display: flex;
     flex-direction: row;
     justify-content: left;
     align-items: center;
     padding: 0 0.938rem;
+    flex: 1;
+    max-width: ${props => props.flexBasis || 'calc(25% - 0.703rem)'};
     .card-title{
         font-size: 1.25rem;
         font-weight: 500;
@@ -45,11 +46,13 @@ const CardStyled = styled.div`
         justify-content: center;
     }
     @media (max-width: 1439px) {
-        width: calc(50% - 0.469rem); // 2x2 layout
+        min-width: calc(50% - 0.469rem);
+        max-width: calc(50% - 0.469rem);
     }
 
     @media (max-width: 895px) {
-        width: 100%; // 1x4 layout
+        min-width: 100%;
+        max-width: 100%;
     }
 `;
 

@@ -9,8 +9,8 @@ function Expense() {
     const { getExpenses, totalExpense, expenses } = useGlobalContext();
 
     useEffect(() => {
-        getExpenses()
-    }, [])
+        getExpenses();
+    }, []);
 
     const cards = [
         { icon: "call_made", title: "Total Expense", money: `$${totalExpense().toFixed(2)}` },
@@ -61,12 +61,13 @@ const ExpenseStyled = styled.div`
     .card-container{
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
+        justify-content: space-between;
         gap: 0.938rem;
+        width: 100%;
     }
     @media (max-width: 1439px) {
         max-width: 50rem;
         padding: 0 1.875rem;
     }
 `;
-export default Expense
+export default Expense;
