@@ -9,6 +9,7 @@ import { useUser } from '../context/userContext';
 function Dashboard() {
     const { getExpenses, totalExpense, expenses, getIncomes, totalIncome, incomes } = useGlobalContext();
     const { user } = useUser();
+    const firstName = user && user.firstName ? user.firstName : 'Test';
     useEffect(() => {
         getExpenses();
         getIncomes();
@@ -21,7 +22,7 @@ function Dashboard() {
     return (
         <DashboardStyled>
             <div className="title-description-container">
-                <h1 className="title">Welcome, <span className="highlight">{user.firstName}</span></h1>
+                <h1 className="title">Welcome, <span className="highlight">{firstName}</span></h1>
                 <h2 className="description">Keep track of your finances more efficiently!</h2>
             </div>
             <div className="card-container">
@@ -49,8 +50,7 @@ function Dashboard() {
 }
 
 const DashboardStyled = styled.div`
-    
-    max-height: 100vh;  
+      
     display: flex;
     flex-direction: column;
     align-items: center;

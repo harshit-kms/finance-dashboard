@@ -7,7 +7,11 @@ import { navItems } from "../utils/navItems"
 import { useUser } from '../context/userContext';
 import { Link } from 'react-router-dom';
 function Navigation({ active, setActive }) {
+    
     const { user } = useUser();
+    const firstName = user ? user.firstName : "Test";
+    const lastName = user ? user.lastName : "User";
+
     return (
         <NavStyled>
             <img src={FinancyLogo} alt="Financy Logo" />
@@ -26,7 +30,7 @@ function Navigation({ active, setActive }) {
             <div className="user-profile">
                 <img src={exampleProfile} alt="Profile" />
                 <div className="text">
-                    <h2>{user.firstName} {user.lastName}</h2>
+                    <h2>{firstName} {lastName}</h2>
                 </div>
                 <Link className="icon" to="/login">
                     {Icons.signup}

@@ -105,7 +105,7 @@ function Chart() {
             tooltip: {
                 enabled: true,
             }
-        }
+        }, 
     };
 
     return (
@@ -124,6 +124,7 @@ const ChartStyled = styled.div`
     display: flex;
     background: #FFFFFF;
     border: 2px solid #FFFFFF;
+    flex-direction: row;
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
     padding: 1rem;
     border-radius: 8px;
