@@ -80,13 +80,13 @@ function PieChart() {
 }
 
 const PieChartStyled = styled.div`
-    width: 100%;
-    max-width: 350px;
+    max-width: 23rem;
     padding: 1rem;
     background: #fff;
     border-radius: 8px;
-    height: 100%;
-    width: 30rem;
+    height: 25rem;
+    width: 100%;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
     
     h1{
         font-size: 1.25rem;

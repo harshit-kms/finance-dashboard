@@ -31,13 +31,10 @@ function Dashboard() {
                 ))}
             </div>
             <div className="graphs">
-                <div className="pie">
                     <Chart />
-                </div>
-                <div>
+                <div className="pie">
                     <PieChart />
                 </div>
-
             </div>
 
             <HistoryLog
@@ -70,8 +67,13 @@ const DashboardStyled = styled.div`
     .graphs{
         display: flex;
         margin-top: 0.938rem;
-        .pie{
-            padding-right: 0.938rem;
+        justify-content: space-between;
+        gap: 1rem;
+        height: 100%;
+        @media (max-width: 1000px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     }
     .description{
