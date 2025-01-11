@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="/Users/magicalnulu1800/Documents/Personal-Finance-Dashboard/Client/src/img/FinancyReadMe.png" alt="Financy Banner" width="100%">
+  <img src="Client/src/img/FinancyReadMe.png" alt="Financy Banner" width="100%">
 </div>
 
 # Financy
