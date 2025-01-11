@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+<div align="center">
+  <img src="/Users/magicalnulu1800/Documents/Personal-Finance-Dashboard/Client/src/img/FinancyReadMe.png" alt="Financy Banner" width="100%">
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Financy
 
-## Available Scripts
+A full-stack web application and database system built with the MERN stack.
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+The Financy web application is designed to help users efficiently manage their personal finances. This platform tracks income, expenses, and offers a visual breakdown of financial data. It provides users with a comprehensive dashboard that displays key financial metrics, alongside an interactive pie chart that categorizes spending. The application also generates graphical representations of income and expense trends, helping users make informed decisions about their budgeting and savings. The platform is divided into four key sections:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Dashboard 📊
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The central hub, displaying interactive graphs and visualizations, including income and expense trends, totals, averages, and breakdowns over time.
 
-### `npm test`
+### Transactions 💼
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+A comprehensive list of all financial transactions, categorized by type, with easy access to view all historical data.
 
-### `npm run build`
+### Incomes 💵
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Add and track sources of income, with summary statistics showing total income, as well as minimum, maximum, and average earnings.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Expenses 🧾
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Add and track expenses, categorized by type, with summary statistics showing total expenses, as well as minimum, maximum, and average spending.
 
-### `npm run eject`
+## Technologies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Frontend
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Backend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
 
-## Learn More
+### Database
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Testing
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
 
-### `npm run build` fails to minify
+### Version Control & Collaboration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+
+## Hosting Locally
+
+### Prerequisites
+
+- Git installed on your machine
+- Latest version of Node.js
+- MongoDB installed locally
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/helloworldmynameisnancy/Personal-Finance-Dashboard.git
+cd Personal-Finance-Dashboard
+code .
+```
+
+> [!IMPORTANT]
+> Ensure both `client/client.env` and `server/server.env` are renamed to `.env` and are properly configured with the necessary environment variables before hosting locally.
+
+### Starting The Client
+
+```bash
+cd client             # Navigate to the client directory.
+npm i -y              # Install dependencies.
+npm run dev           # Start the client.
+```
+
+> [!NOTE]
+> A new window will automatically open in your default browser at http://localhost:5173 (or the port Vite chooses).
+
+### Starting The Server
+
+```bash
+cd server      	      # Navigate to the server directory.
+npm i                 # Install dependencies.
+npm start             # Start the server.
+```

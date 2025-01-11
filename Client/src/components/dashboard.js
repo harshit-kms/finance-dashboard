@@ -70,7 +70,7 @@ const DashboardStyled = styled.div`
         justify-content: space-between;
         gap: 1rem;
         height: 100%;
-        @media (max-width: 1000px) {
+        @media (max-width: 800px) {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -91,7 +91,7 @@ const DashboardStyled = styled.div`
         width: 100%;
     }
     @media (max-width: 1439px) {
-        max-width: 50rem;
+        max-width: 51rem;
         padding: 0 1.875rem;
     }
 `;

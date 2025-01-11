@@ -80,21 +80,31 @@ function PieChart() {
 }
 
 const PieChartStyled = styled.div`
-    max-width: 23rem;
+    width: 21.5rem;
     padding: 1rem;
     background: #fff;
     border-radius: 8px;
     height: 25rem;
-    width: 100%;
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-    
+    max-width: ${props => props.flexBasis || 'calc(100% - 0.703rem)'};
     h1{
         font-size: 1.25rem;
         font-weight: 600;
         text-align: left;
     }
-    
-    
+    .chart-container {
+        width: 100%;
+        height: 100%;
+    }
+    @media (max-width: 1000px) {
+        min-width: calc(25% - 0.469rem);
+        max-width: calc(25% - 0.469rem);
+    }
+
+    @media (max-width: 895px) {
+        min-width: 10rem;
+        max-width: 21.5rem;
+    }
 `;
 
 export default PieChart;
