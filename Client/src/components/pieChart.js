@@ -47,6 +47,7 @@ function PieChart() {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         labels: {
@@ -106,15 +107,22 @@ const PieChartStyled = styled.div`
     align-items: center;
     width: 100%;
     height: 100%;
+    padding: 0;
+    margin-left: -6rem;
 
     @media (max-width: 1400px) {
-      width: 70%;
-      height: 70%;
+      min-width: 60%;
+      min-height: 60%;
     }
     @media (max-width: 1100px) {
-      width: 95% !important;
-      height: 95% !important;
+      min-width: 59%;
+      min-height: 70%;
     }
+  }
+  .chart-container canvas {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
   }
 `;
 

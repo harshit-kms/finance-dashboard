@@ -89,6 +89,8 @@ function Chart() {
   };
 
   const options = {
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       x: {
         type: "category",
@@ -145,12 +147,13 @@ const ChartStyled = styled.div`
     width: 100%;
   }
   h1 {
-    font-size: 1.25rem !important;
+    font-size: 1.25rem;
     font-weight: 600;
   }
   .chart-container {
     width: 100%;
     height: 100%;
+    max-height: 15rem;
     @media (max-width: 1100px) {
       width: 100%;
       height: 91%;
