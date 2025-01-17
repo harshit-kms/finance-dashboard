@@ -86,7 +86,7 @@ npm run dev           # Start the client.
 ```
 
 > [!NOTE]
-> A new window will automatically open in your default browser at http://localhost:5173 (or the port Vite chooses).
+> A new window will automatically open in your default browser at http://localhost:5050 (or the port Vite chooses).
 
 ### Starting The Server
 
