@@ -10,7 +10,18 @@ config({ path: '../Server/config.env' });
 const app = express();
 const PORT = process.env.PORT;
 
-app.use(cors());
+const allowedOrigins = ['http://localhost:3000', 'https://myfinancy.vercel.app'];
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 readdirSync('./routes').map((route) => app.use('/api', require('./routes/' + route)))
