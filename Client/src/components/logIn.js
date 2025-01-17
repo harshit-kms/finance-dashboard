@@ -15,7 +15,7 @@ function LogIn() {
     const { setUser } = useUser();
     const handleClick = (e) => {
         e.preventDefault()
-        axios.post(`${BASE_URL}login`, { email, password })
+        axios.post(`${BASE_URL}/login`, { email, password })
             .then(result => {
                 console.log(result);
                 if (result.data.message === "Success") {
