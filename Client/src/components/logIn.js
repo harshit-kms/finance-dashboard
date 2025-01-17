@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useUser } from '../context/userContext';
 
-const BASE_URL = "http://localhost:5050/api/";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 function LogIn() {
     const [email, setEmail] = useState('')
