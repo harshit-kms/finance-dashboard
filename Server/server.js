@@ -5,10 +5,10 @@ const { db } = require('../Server/db/connection.js');
 const { readdirSync } = require('fs');
 const path = require('path');
 // Load environment variables from .env file
-config({ path: '../Server/config.env' });
+config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = 3001 || process.env.PORT;
 
 const allowedOrigins = ['http://localhost:3000', 'https://myfinancy.vercel.app'];
 const corsOptions = {
