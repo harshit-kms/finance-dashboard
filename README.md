@@ -1,14 +1,9 @@
-<div align="center">
-  <img src="Client/src/img/FinancyReadMe.png" alt="Financy Banner" width="100%">
-</div>
-
-# Financy
 
 A full-stack web application and database system built with the MERN stack.
 
 ## Description
 
-The Financy web application is designed to help users efficiently manage their personal finances. This platform tracks income, expenses, and offers a visual breakdown of financial data. It provides users with a comprehensive dashboard that displays key financial metrics, alongside an interactive pie chart that categorizes spending. The application also generates graphical representations of income and expense trends, helping users make informed decisions about their budgeting and savings. The platform is divided into four key sections:
+This web application is designed to help users efficiently manage their personal finances. This platform tracks income, expenses, and offers a visual breakdown of financial data. It provides users with a comprehensive dashboard that displays key financial metrics, alongside an interactive pie chart that categorizes spending. The application also generates graphical representations of income and expense trends, helping users make informed decisions about their budgeting and savings. The platform is divided into four key sections:
 
 ### Dashboard 📊
 
@@ -44,21 +39,7 @@ Add and track expenses, categorized by type, with summary statistics showing tot
 
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 
-### Testing
 
-![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
-
-### Deployment
-
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
-![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
-
-### Version Control & Collaboration
-
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
-
-## Hosting Locally
 
 ### Prerequisites
 
@@ -68,11 +49,6 @@ Add and track expenses, categorized by type, with summary statistics showing tot
 
 ### Clone the Repository
 
-```bash
-git clone https://github.com/helloworldmynameisnancy/Personal-Finance-Dashboard.git
-cd Personal-Finance-Dashboard
-code .
-```
 
 > [!IMPORTANT]
 > Ensure both `client/client.env` and `server/server.env` are renamed to `.env` and are properly configured with the necessary environment variables before hosting locally.
